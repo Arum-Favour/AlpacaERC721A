@@ -298,6 +298,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "maxMintPerUser",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "maxMintSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "name",
 				"outputs": [
 					{
@@ -343,6 +369,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "price",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -351,19 +390,14 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "quantity",
 						"type": "uint256"
 					}
 				],
 				"name": "safeMint",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -755,11 +789,11 @@
 			]
 		},
 		"contract/ERC-721AWRefund.sol": {
-			"keccak256": "0x7c3db36dd50aaa1a3269f07981e0fbfde21f313f1ecfb9f7f8af9c066ecafa8f",
+			"keccak256": "0xc735ca078d20ba81f48ee9ed98287d55dd2505bc59f043bb28ff681e06d44610",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://23e4a3909da21f462824269e75bd1e23f1cea85377fe1ca55a90f89bf13656b4",
-				"dweb:/ipfs/QmSd7ciWCYfDGXqCrXzwUee5CByMDyrsfaE3cWPs5oypje"
+				"bzz-raw://be91cc064a7958ab9a80415c3a5429b08f6e3a0251641bfc8b507b27e96bf241",
+				"dweb:/ipfs/QmcRgpEpJJuQzesyBKRQ43DAePkM3fP9WMLGXv7iBLAqqA"
 			]
 		},
 		"https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/ERC721A.sol": {

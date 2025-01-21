@@ -7,6 +7,9 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IERC721} from "https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/IERC721R.sol";
 
 contract Alpaca is ERC721A, Ownable {
+    uint256 public constant price = 1 ether;
+    uint256 public constant maxMintPerUser = 5;
+    uint256 public constant maxMintSupply = 100;
     constructor(address initialOwner)
         ERC721A("Alpaca", "ALP")
         Ownable(initialOwner)
@@ -16,7 +19,10 @@ contract Alpaca is ERC721A, Ownable {
         return "ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/";
     }
 
-    function safeMint(address to, uint256 tokenId) public onlyOwner {
-        _safeMint(to, tokenId);
+    function safeMint(uint256 quantity) public payable{
+        require(msg.value >= quantity * 1 ether, "INSUFFICIENT FUNDS!");
+        require(_numberMinted(msg.sender) + quantity <= maxMintPerUser, "Mint Limit");
+        require(_totalMinted() + quantity <= maxMintSupply, "SOLD OUT!");
+        _safeMint(msg.sender, quantity);
     }
 }

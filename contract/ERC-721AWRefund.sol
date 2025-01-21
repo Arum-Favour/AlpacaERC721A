@@ -4,6 +4,7 @@ pragma solidity ^0.8.22;
 
 import {ERC721A} from "https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/ERC721A.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Address.sol";
 import {IERC721} from "https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/IERC721R.sol";
 
 contract Alpaca is ERC721A, Ownable {
@@ -25,4 +26,10 @@ contract Alpaca is ERC721A, Ownable {
         require(_totalMinted() + quantity <= maxMintSupply, "SOLD OUT!");
         _safeMint(msg.sender, quantity);
     }
+
+    function withdraw() external onlyOwner {
+       uint256 balance = address(this).balance;
+       Address.sendValue(payable(msg.sender), balance);
+}
+
 }

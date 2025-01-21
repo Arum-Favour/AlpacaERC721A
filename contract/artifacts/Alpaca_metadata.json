@@ -43,6 +43,27 @@
 			},
 			{
 				"inputs": [],
+				"name": "FailedCall",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "needed",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
 				"name": "MintToZeroAddress",
 				"type": "error"
 			},
@@ -568,10 +589,27 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
 			"errors": {
+				"FailedCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"InsufficientBalance(uint256,uint256)": [
+					{
+						"details": "The ETH balance of the account is not enough to perform the operation."
+					}
+				],
 				"OwnableInvalidOwner(address)": [
 					{
 						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
@@ -789,11 +827,11 @@
 			]
 		},
 		"contract/ERC-721AWRefund.sol": {
-			"keccak256": "0xc735ca078d20ba81f48ee9ed98287d55dd2505bc59f043bb28ff681e06d44610",
+			"keccak256": "0x545db001bce456d989470f77131b91cd5ca6d0d9d84ffd5072eaaed094d078a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://be91cc064a7958ab9a80415c3a5429b08f6e3a0251641bfc8b507b27e96bf241",
-				"dweb:/ipfs/QmcRgpEpJJuQzesyBKRQ43DAePkM3fP9WMLGXv7iBLAqqA"
+				"bzz-raw://56f1bdf68d60fb36357fd6c45dc46282787005b897eae8635cd1f43606f68077",
+				"dweb:/ipfs/QmdUXynW7bgY7B9Tu4KfFP1YZA4URGf6BzENe5JRUr1iUh"
 			]
 		},
 		"https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/ERC721A.sol": {

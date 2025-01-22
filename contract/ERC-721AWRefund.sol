@@ -11,6 +11,7 @@ contract Alpaca is ERC721A, Ownable {
     uint256 public constant price = 1 ether;
     uint256 public constant maxMintPerUser = 5;
     uint256 public constant maxMintSupply = 100;
+    uint256 public constant refundPeriod = 3 minutes;
     constructor(address initialOwner)
         ERC721A("Alpaca", "ALP")
         Ownable(initialOwner)

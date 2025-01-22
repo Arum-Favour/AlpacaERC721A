@@ -403,6 +403,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "refundPeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -827,11 +840,11 @@
 			]
 		},
 		"contract/ERC-721AWRefund.sol": {
-			"keccak256": "0x545db001bce456d989470f77131b91cd5ca6d0d9d84ffd5072eaaed094d078a9",
+			"keccak256": "0x6c9981a2fa652b3a1327a75dbeab4503c71d1d1a19f1a3dc003cf9bc84e2cf59",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://56f1bdf68d60fb36357fd6c45dc46282787005b897eae8635cd1f43606f68077",
-				"dweb:/ipfs/QmdUXynW7bgY7B9Tu4KfFP1YZA4URGf6BzENe5JRUr1iUh"
+				"bzz-raw://ccda9f1855a7e63f51e96484a0fa7912c9c92029257d5c128a6809344a94325a",
+				"dweb:/ipfs/QmbU7ZF2PDLFHSSLyTPgTHBY8i4oBEWUTj4ARCX3meR1hn"
 			]
 		},
 		"https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/ERC721A.sol": {

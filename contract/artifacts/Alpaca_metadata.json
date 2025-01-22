@@ -277,6 +277,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "hasRefunded",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "owner",
 						"type": "address"
@@ -391,6 +410,64 @@
 			{
 				"inputs": [],
 				"name": "price",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "refund",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refundAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refundEndTimeStamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "refundEndTimeStamps",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -840,11 +917,11 @@
 			]
 		},
 		"contract/ERC-721AWRefund.sol": {
-			"keccak256": "0x6c9981a2fa652b3a1327a75dbeab4503c71d1d1a19f1a3dc003cf9bc84e2cf59",
+			"keccak256": "0x6e0baed3f8300b3aa34d409d64adab7f53790c213d773aca06b8ef5c8a2b75e9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ccda9f1855a7e63f51e96484a0fa7912c9c92029257d5c128a6809344a94325a",
-				"dweb:/ipfs/QmbU7ZF2PDLFHSSLyTPgTHBY8i4oBEWUTj4ARCX3meR1hn"
+				"bzz-raw://6cf1c6385f811c08d64e00381cb679510492c92178dc1958c58d2f8bc83f3c4b",
+				"dweb:/ipfs/QmWdffG68BseippFxCLVrroYp2XY4jHPxT6M3MyL1v3LGD"
 			]
 		},
 		"https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/ERC721A.sol": {

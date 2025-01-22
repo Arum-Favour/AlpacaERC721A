@@ -11,11 +11,24 @@ contract Alpaca is ERC721A, Ownable {
     uint256 public constant price = 1 ether;
     uint256 public constant maxMintPerUser = 5;
     uint256 public constant maxMintSupply = 100;
+
+     address public refundAddress;
+
+
     uint256 public constant refundPeriod = 3 minutes;
+    uint256 public refundEndTimeStamp;
+
+    mapping(uint256 => uint256) public refundEndTimeStamps;
+    mapping(uint256 => bool)public hasRefunded;
+   
+    
     constructor(address initialOwner)
         ERC721A("Alpaca", "ALP")
         Ownable(initialOwner)
-    {}
+    {
+        refundAddress = address(this);
+        refundEndTimeStamp = block.timestamp + refundPeriod;
+    }
 
     function _baseURI() internal pure override returns (string memory) {
         return "ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/";
@@ -26,11 +39,20 @@ contract Alpaca is ERC721A, Ownable {
         require(_numberMinted(msg.sender) + quantity <= maxMintPerUser, "Mint Limit");
         require(_totalMinted() + quantity <= maxMintSupply, "SOLD OUT!");
         _safeMint(msg.sender, quantity);
+          refundEndTimeStamp = block.timestamp + refundPeriod;
+          for (uint256 i = _currentIndex - quantity; i < _currentIndex; i++) 
+          {
+            refundEndTimeStamps[i] = refundEndTimeStamp;
+          }
     }
 
     function withdraw() external onlyOwner {
        uint256 balance = address(this).balance;
        Address.sendValue(payable(msg.sender), balance);
+}
+
+    function refund(uint256 tokenId) external view{
+    require(msg.sender == ownerOf(tokenId), "Wrong Access");
 }
 
 }

@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
 import {IERC721} from "https://github.com/exo-digital-labs/ERC721R/blob/main/contracts/IERC721R.sol";
 
 contract Alpaca is ERC721A, Ownable {
-    uint256 public constant price = 1 ether;
+    uint256 public constant mintPrice = 1 ether;
     uint256 public constant maxMintPerUser = 5;
     uint256 public constant maxMintSupply = 100;
 
@@ -51,8 +51,34 @@ contract Alpaca is ERC721A, Ownable {
        Address.sendValue(payable(msg.sender), balance);
 }
 
-    function refund(uint256 tokenId) external view{
+    function refund(uint256 tokenId) external {
+        require(block.timestamp < getRefundDeadline(tokenId), "Refund period expired");
     require(msg.sender == ownerOf(tokenId), "Wrong Access");
+    uint256 refundAmount = getRefundAmount(tokenId);
+
+    //Transfer ownership of NFT
+    _transfer(msg.sender, refundAddress,tokenId);
+
+     //mark refund
+     hasRefunded[tokenId] = true;
+
+    //refund the price
+     Address.sendValue(payable(msg.sender), refundAmount);
+}
+
+function getRefundDeadline(uint256 tokenId)public view returns(uint256) {
+     if(hasRefunded[tokenId]){ 
+        return 0;
+    }
+
+    return refundEndTimeStamps[tokenId];
+}
+
+function getRefundAmount(uint256 tokenId)public view returns(uint256) {
+    if(hasRefunded[tokenId]){
+        return 0;
+    }
+    return mintPrice;
 }
 
 }
